@@ -5,7 +5,7 @@
     runs-on: ubuntu-latest
     env:
       USERNAME: ${{ vars.USERNAME }}
-      PASSWORD: ${{ vars.password }}
+      PASSWORD: ${{ vars.PASSWORD }}
     steps:
       - run: echo "${USERNAME}"
       - run: echo "${PASSWORD}"
