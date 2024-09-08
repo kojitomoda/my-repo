@@ -4,9 +4,20 @@ jobs:
   compare:
     runs-on: ubuntu-latest
     steps:
-      - run: printenv | grep '_FUNC'
-        env:
-          CONTAINS_FUNC: ${{ contains('Hello', 'ell') }}
-      - run: printenv | grep '_FUNC'
-        env:
-          FORMAT_FUNC: ${{ format('{0}, {1}.', 'Hi', 'world' }}
+      - name: Check for substring and set CONTAINS_FUNC
+        id: check_contains
+        run: |
+          if echo 'Hello' | grep -q 'ell'; then
+            echo "CONTAINS_FUNC=true" >> $GITHUB_ENV
+          else
+            echo "CONTAINS_FUNC=false" >> $GITHUB_ENV
+          fi
+
+      - name: Format string and set FORMAT_FUNC
+        id: format_string
+        run: |
+          echo "FORMAT_FUNC=$(printf '%s, %s.' 'Hi' 'world')" >> $GITHUB_ENV
+
+      - name: Print environment variables
+        run: |
+          printenv | grep '_FUNC'
