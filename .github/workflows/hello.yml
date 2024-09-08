@@ -7,6 +7,6 @@ jobs:
       - name: Simulate a failure
         run: exit 0
 
-      - if: ${{ failure() }}
+      - if: ${{ success() }}
         name: Print HELLO if previous step failed
         run: echo "HELLO"
