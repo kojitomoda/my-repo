@@ -7,3 +7,6 @@ jobs:
       - run: printenv | grep '_FUNC'
         env:
           CONTAINS_FUNC: ${{ contains('Hello', 'ell') }}
+      - run: printenv | grep '_FUNC'
+        env:
+          FORMAT_FUNC: ${{ format('{0}, {1}.', 'Hi', 'world }}
