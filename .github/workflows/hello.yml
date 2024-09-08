@@ -8,5 +8,5 @@ jobs:
         run: exit 0
 
       - if: ${{ success() }}
-        name: Print HELLO if previous step failed
         run: echo "HELLO"
+        name: Print HELLO if previous step failed
