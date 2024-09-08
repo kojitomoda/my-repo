@@ -1,11 +1,9 @@
- name: Hello
- on: push
- jobs:
-  print:
+name: Compare function
+on: push
+jobs:
+  compare:
     runs-on: ubuntu-latest
-    env:
-      USERNAME: ${{ vars.USERNAME }}
-      PASSWORD: ${{ secrets.PASSWORD }}
     steps:
-      - run: echo "${USERNAME}"
-      - run: echo "${PASSWORD}"
+      - run: printenv | grep '_FUNC'
+        env:
+          CONTAINS_FUNC: ${{ contains('Hello', 'ell) }}
