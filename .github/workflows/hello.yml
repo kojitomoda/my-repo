@@ -2,6 +2,7 @@ name: Compare function
 on: push
 jobs:
   compare:
+    name: Super Useful Job
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
