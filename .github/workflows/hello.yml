@@ -4,9 +4,7 @@ jobs:
   compare:
     runs-on: ubuntu-latest
     steps:
-      - name: Simulate a failure
-        run: exit 0
-
-      - if: ${{ success() }}
-        run: echo "HELLO"
-        name: Print HELLO if previous step failed
+      - name: conver json
+        env:
+          CONTEXT: ${{ toJSON(github) }}
+        run: echo "${CONTEXT}}
