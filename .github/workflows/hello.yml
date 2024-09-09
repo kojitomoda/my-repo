@@ -1,4 +1,5 @@
 name: Compare function
+run-name: Run By @${{ github.actor }}
 on: push
 jobs:
   compare:
