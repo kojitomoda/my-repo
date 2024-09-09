@@ -8,3 +8,7 @@ jobs:
         env:
           CONTEXT: ${{ toJSON(github) }}
         run: echo "${CONTEXT}}"
+      - name: hash
+        env:
+          HASH ${{ hashFile('.github/workflows/*.yml') }}
+        run: echo "${HASH}"
