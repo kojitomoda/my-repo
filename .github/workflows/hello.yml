@@ -7,4 +7,4 @@ jobs:
       - name: conver json
         env:
           CONTEXT: ${{ toJSON(github) }}
-        run: echo "${CONTEXT}}
+        run: echo "${CONTEXT}}"
